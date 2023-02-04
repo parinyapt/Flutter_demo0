@@ -16,28 +16,28 @@ class _LoginPageState extends State<LoginPage> {
         title: Text("Login"),
       ),
       body: Container(
-        color: Colors.yellow,
         width: double.infinity,
         height: double.infinity,
         child: Column(
           children: [
-            Text(
-              "Body",
-              style: TextStyle(fontSize: 40),
-            ),
-            Text(
-              "Body2",
-              style: TextStyle(fontSize: 40),
-            ),
-            Text(
-              "Body3",
-              style: TextStyle(fontSize: 40),
-            ),
-            TextButton(onPressed: (){
-              print("Hello World");
-              Navigator.pushNamed(context, AppRoute.home);
-            }, child: Text("Btn1")),
-            Image.asset("assets/images/logo.png")
+            Image.asset("assets/images/logo.png"),
+            Padding(
+              padding: const EdgeInsets.all(32.0),
+              child: Card(
+                child: SizedBox(
+                  height: 200,
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Text("asasas")
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       ),
