@@ -1,3 +1,4 @@
+import 'package:demo0/src/pages/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -34,6 +35,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             TextButton(onPressed: (){
               print("Hello World");
+              Navigator.pushNamed(context, AppRoute.home);
             }, child: Text("Btn1"))
           ],
         ),
