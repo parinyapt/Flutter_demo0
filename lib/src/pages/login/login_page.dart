@@ -14,6 +14,30 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         title: Text("Login"),
       ),
+      body: Container(
+        color: Colors.yellow,
+        width: double.infinity,
+        height: double.infinity,
+        child: Column(
+          children: [
+            Text(
+              "Body",
+              style: TextStyle(fontSize: 40),
+            ),
+            Text(
+              "Body2",
+              style: TextStyle(fontSize: 40),
+            ),
+            Text(
+              "Body3",
+              style: TextStyle(fontSize: 40),
+            ),
+            TextButton(onPressed: (){
+              print("Hello World");
+            }, child: Text("Btn1"))
+          ],
+        ),
+      ),
     );
   }
 }
