@@ -36,7 +36,8 @@ class _LoginPageState extends State<LoginPage> {
             TextButton(onPressed: (){
               print("Hello World");
               Navigator.pushNamed(context, AppRoute.home);
-            }, child: Text("Btn1"))
+            }, child: Text("Btn1")),
+            Image.asset("assets/images/logo.png")
           ],
         ),
       ),
