@@ -9,7 +9,19 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+
+  int count = 0;
+  final _usernameController = TextEditingController();
+  final _passwordController = TextEditingController();
+
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _usernameController.text = "";
+    _passwordController.text = "";
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -18,34 +30,59 @@ class _LoginPageState extends State<LoginPage> {
       body: Container(
         width: double.infinity,
         height: double.infinity,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              _buildBanner(),
+              _buildForm()
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  _buildForm() {
+    return Card(
+      elevation: 7,
+      margin: EdgeInsets.only(top: 50, left: 32, right: 32),
+      color: Colors.white,
+      child: Padding(
+        padding: const EdgeInsets.all(24.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Image.asset("assets/images/logo.png"),
-            Padding(
-              padding: const EdgeInsets.all(32.0),
-              child: Card(
-                child: SizedBox(
-                  height: 200,
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Text("asasas"),
-                        OutlinedButton(
-                            onPressed: () {
-                              print("object");
-                            },
-                            child: Text("Login"))
-                      ],
-                    ),
-                  ),
-                ),
+            TextField(
+              controller: _usernameController,
+              keyboardType: TextInputType.emailAddress,
+              decoration: const InputDecoration(
+                border: InputBorder.none,
+                hintText: 'codemobiles@gmail.com',
+                labelText: 'Username',
+                icon: Icon(Icons.email),
               ),
-            )
+            ),
+            TextField(
+              obscureText: true,
+              controller: _passwordController,
+              decoration: const InputDecoration(
+                border: InputBorder.none,
+                hintText: 'Enter password',
+                labelText: 'Password',
+                icon: Icon(Icons.password_outlined),
+              ),
+            ),
+            SizedBox(height: 30),
+            ElevatedButton(
+              onPressed: () {},
+              child: Text("Login"),
+            ),
+            OutlinedButton(onPressed: () {}, child: Text("Register")),
           ],
         ),
       ),
     );
   }
+
+  _buildBanner() => Image.asset("assets/images/logo.png");
 }
