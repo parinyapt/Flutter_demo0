@@ -8,15 +8,13 @@ abstract class LoginEvent extends Equatable {
 }
 
 class LoginEventSubmit extends LoginEvent {
-  final String username;
-  final String password;
+  final User payload;
 
-  LoginEventSubmit(this.username, this.password);
-
-
-
+  LoginEventSubmit(this.payload);
 }
 
 class RegisterEventSubmit extends LoginEvent {
+  final User payload;
 
+  RegisterEventSubmit(this.payload);
 }
