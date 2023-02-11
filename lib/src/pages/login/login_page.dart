@@ -76,7 +76,10 @@ class _LoginPageState extends State<LoginPage> {
                   _usernameController.text, _passwordController.text)),
               child: Text("Login"),
             ),
-            OutlinedButton(onPressed: () {}, child: Text("Register")),
+            OutlinedButton(
+                onPressed: () =>
+                    context.read<LoginBloc>().add(RegisterEventSubmit()),
+                child: Text("Register")),
           ],
         ),
       ),
