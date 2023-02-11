@@ -8,9 +8,24 @@ part 'login_event.dart';
 part 'login_state.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  LoginBloc() : super(LoginInitial()) {
-    on<LoginEventSubmit>((event, emit) {
-      print("Login: ${event.payload.username} , ${event.payload.password}");
+  LoginBloc() : super(LoginState()) {
+    on<LoginEventSubmit>((event, emit) async {
+      emit(state.copyWith(status: LoginStatus.fetching));
+      // delay 3 sec
+      await Future.delayed(Duration(seconds: 3));
+
+      print("Login Btn Click: ${event.payload.username} , ${event.payload.password}");
+
+      final username = event.payload.username;
+      final password = event.payload.password;
+      if (username == "admin" && password == "1234") {
+        //success
+        emit(state.copyWith(status: LoginStatus.success));
+      }else{
+        //fail
+        emit(state.copyWith(status: LoginStatus.failed));
+      }
+
     });
 
     on<RegisterEventSubmit>((event, emit) {
